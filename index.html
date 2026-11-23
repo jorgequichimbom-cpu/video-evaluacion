@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de la clase</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+        .video-container {
+            max-width: 800px;
+            width: 100%;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        video {
+            width: 100%;
+            display: block; /* Elimina el espacio inferior */
+        }
+        /* Contenedor del botón, inicialmente oculto */
+        #boton-evaluacion {
+            display: none; /* La clave está aquí, oculto por defecto */
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff; /* Color azul, puedes cambiarlo */
+            text-decoration: none;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,123,255,0.3);
+            transition: background-color 0.3s;
+        }
+        #boton-evaluacion:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Por favor, mira el video y luego completa la evaluación</h2>
+
+    <div class="video-container">
+        <!-- 
+          ATENCIÓN: 
+          1. En src="clase.mp4" pon el nombre de tu archivo de video.
+          2. En poster="portada.jpg" pon el nombre de tu imagen de portada.
+          3. El atributo "controls" es esencial para que el usuario pueda reproducir.
+        -->
+        <video id="miVideo" controls preload="metadata" poster="portada.jpg">
+            <source src="clase.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video. Por favor, actualízalo.
+        </video>
+    </div>
+
+    <!-- 
+      Este es el botón que aparecerá al final. 
+      En href="" debes pegar el enlace de tu formulario de Google.
+    -->
+    <a id="boton-evaluacion" href="https://forms.gle/cpupuz5XNyduh8aQ9" target="_blank">
+        📝 Hacer clic aquí para evaluar
+    </a>
+
+    <script>
+        // Obtener los elementos del video y del botón
+        const video = document.getElementById('miVideo');
+        const boton = document.getElementById('boton-evaluacion');
+
+        // Escuchar el evento 'ended' (cuando el video termina de reproducirse)
+        video.addEventListener('ended', function() {
+            // Cuando termina, cambiamos el estilo del botón para que se muestre
+            boton.style.display = 'inline-block'; // 'inline-block' o 'block' dependiendo del diseño
+        });
+    </script>
+
+</body>
+</html>
